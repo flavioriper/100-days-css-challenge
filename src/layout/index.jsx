@@ -1,6 +1,12 @@
 import Head from 'next/head'
 
-export default function Home({ children }) {
+import { node } from 'prop-types'
+
+const propTypes = {
+  children: node.isRequired,
+}
+
+const Home = ({ children }) => {
   return (
     <div>
       <Head>
@@ -10,11 +16,13 @@ export default function Home({ children }) {
       </Head>
 
       <main>
-        <h1>
-          100 days CSS challenge
-        </h1>
+        <h1>100 days CSS challenge</h1>
         {children}
       </main>
     </div>
   )
 }
+
+Home.propTypes = propTypes
+
+export default Home
